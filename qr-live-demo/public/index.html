@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>QR Live Demo · TinkerHub</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="theme-dark">
+
+  <canvas id="particles"></canvas>
+
+  <main class="stage">
+
+    <!-- ===================== TERMINAL / LOADING SEQUENCE ===================== -->
+    <section id="terminalScreen" class="terminal-card glass">
+      <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="terminal-title">secure-session.sh</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <!-- lines injected by script.js -->
+      </div>
+    </section>
+
+    <!-- ===================== REVEAL SCREEN ===================== -->
+    <section id="revealScreen" class="reveal-card glass hidden">
+      <div class="reveal-header">
+        <h1>Welcome! <span class="wave">👋</span></h1>
+        <p class="subtitle">
+          Your browser automatically shared some information with this website —
+          <strong>just by opening the page.</strong>
+        </p>
+        <p class="edu-note">🎓 Educational demo for a TinkerHub session · nothing sensitive is collected</p>
+      </div>
+
+      <div class="info-grid" id="infoGrid">
+        <div class="info-item" data-key="browser">
+          <div class="info-icon">🌐</div>
+          <div class="info-text">
+            <div class="info-label">Browser</div>
+            <div class="info-value" id="val-browser">Detecting…</div>
+          </div>
+        </div>
+
+        <div class="info-item" data-key="os">
+          <div class="info-icon">💻</div>
+          <div class="info-text">
+            <div class="info-label">Operating System</div>
+            <div class="info-value" id="val-os">Detecting…</div>
+          </div>
+        </div>
+
+        <div class="info-item" data-key="device">
+          <div class="info-icon">📱</div>
+          <div class="info-text">
+            <div class="info-label">Device Type</div>
+            <div class="info-value" id="val-device">Detecting…</div>
+          </div>
+        </div>
+
+        <div class="info-item" data-key="ip">
+          <div class="info-icon">🛰️</div>
+          <div class="info-text">
+            <div class="info-label">Public IP</div>
+            <div class="info-value" id="val-ip">Detecting…</div>
+          </div>
+        </div>
+
+        <div class="info-item" data-key="city">
+          <div class="info-icon">📍</div>
+          <div class="info-text">
+            <div class="info-label">Approximate City</div>
+            <div class="info-value" id="val-city">Detecting…</div>
+          </div>
+        </div>
+
+        <div class="info-item" data-key="country">
+          <div class="info-icon">🏳️</div>
+          <div class="info-text">
+            <div class="info-label">Country</div>
+            <div class="info-value" id="val-country">Detecting…</div>
+          </div>
+        </div>
+
+        <div class="info-item" data-key="isp">
+          <div class="info-icon">📡</div>
+          <div class="info-text">
+            <div class="info-label">ISP</div>
+            <div class="info-value" id="val-isp">Detecting…</div>
+          </div>
+        </div>
+
+        <div class="info-item" data-key="time">
+          <div class="info-icon">🕒</div>
+          <div class="info-text">
+            <div class="info-label">Time</div>
+            <div class="info-value" id="val-time">Detecting…</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projector-callout">
+        <span class="pulse-dot"></span>
+        Now look at the projector 👀
+      </div>
+
+      <p class="fineprint">
+        This is standard information every website you visit can see — it's part of how the web works
+        (User-Agent header + IP-based geolocation). This demo just makes it visible to you.
+      </p>
+    </section>
+
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>

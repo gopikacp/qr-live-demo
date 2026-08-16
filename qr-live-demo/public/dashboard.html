@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Live Dashboard · QR Live Demo</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body class="theme-dark">
+
+  <canvas id="particles"></canvas>
+
+  <header class="dash-header glass">
+    <div class="dash-header-left">
+      <h1>📡 QR Live Demo — Dashboard</h1>
+      <p class="dash-subtitle">Real-time view of everyone scanning the QR code</p>
+    </div>
+    <div class="dash-header-right">
+      <div class="clock-block">
+        <div id="liveClock" class="live-clock">--:--:--</div>
+        <div id="sessionTimer" class="session-timer">Session 00:00:00</div>
+      </div>
+      <button id="themeToggle" class="icon-btn" title="Toggle dark / light">🌗</button>
+    </div>
+  </header>
+
+  <main class="dash-main">
+
+    <section class="stats-grid" id="statsGrid">
+      <div class="stat-card glass">
+        <div class="stat-label">Total Visitors</div>
+        <div class="stat-value" id="stat-total">0</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-label">Android %</div>
+        <div class="stat-value" id="stat-android">0%</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-label">iPhone %</div>
+        <div class="stat-value" id="stat-iphone">0%</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-label">Chrome %</div>
+        <div class="stat-value" id="stat-chrome">0%</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-label">Safari %</div>
+        <div class="stat-value" id="stat-safari">0%</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-label">Firefox %</div>
+        <div class="stat-value" id="stat-firefox">0%</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-label">Top City</div>
+        <div class="stat-value small" id="stat-topcity">—</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-label">Top ISP</div>
+        <div class="stat-value small" id="stat-topisp">—</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-label">Avg Scan Time</div>
+        <div class="stat-value small" id="stat-avgscan">0 ms</div>
+      </div>
+      <div class="stat-card glass">
+        <div class="stat-label">Newest Visitor</div>
+        <div class="stat-value small" id="stat-newest">—</div>
+      </div>
+    </section>
+
+    <section class="dash-columns">
+
+      <div class="visitors-column">
+        <div class="visitors-toolbar">
+          <h2>Live Visitors</h2>
+          <div class="toolbar-actions">
+            <input id="adminKeyInput" class="admin-input" type="password" placeholder="Admin key" />
+            <button id="exportBtn" class="btn">⬇ Export CSV</button>
+            <button id="clearBtn" class="btn btn-danger">🗑 Clear</button>
+          </div>
+        </div>
+        <div id="visitorsList" class="visitors-list">
+          <div class="empty-state" id="emptyState">Waiting for the first scan… 📷</div>
+        </div>
+      </div>
+
+      <aside class="qr-column glass">
+        <h2>Scan to join</h2>
+        <img src="/qr.png" alt="QR code to the live demo" class="qr-image" id="qrImage" />
+        <p class="qr-url" id="qrUrl">loading…</p>
+      </aside>
+
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/dashboard.js"></script>
+</body>
+</html>
